@@ -1,6 +1,10 @@
 {
     "code-runner.executorMap": {
      "typescript": " cls && npx ts-node --files --transpile-only",
-      "lib": ["DOM", "ESNext"]
+      "lib": ["DOM", "ESNext"],
+      "outDir": "/dist/assets/js",
+      "compilerOptions": {
+        "module": "comon.js",
+      }
     }
 }
