@@ -5,7 +5,7 @@ const y = 10;
 let a = 100 as const;
 
 const teste = {
-  first :   'caio' as const,// asercao
+  first :   'caio' as const,// insercao
   last : 'ribeiro'
 };
 
