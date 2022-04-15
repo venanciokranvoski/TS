@@ -1,9 +1,23 @@
 import { Console } from "console";
 
+
+
+/*
+A diferença entre protected e private
+´´e que private so pode ser acessado da classe que foi criada
+porem o protecte pode ser acessado por subclasses
+
+
+
+
+*/
+
+
+
 export class Empresa{
 
    readonly nome : string;
-   private readonly colaborador: Colaborador[] = [];
+   protected readonly colaborador: Colaborador[] = [];
    protected readonly cnpj: string;
 
    constructor(nome: string, cnpj: string){
@@ -22,6 +36,20 @@ export class Empresa{
      }
    }
 
+
+}
+
+export class Udemy extends Empresa {
+  constructor(){
+    super('udemy', '11.111.111/0001-11');
+  }
+
+pop():Colaborador{// sempre verificar o valor
+  const colaborador = this.colaborador.pop();
+  //===== validando
+  if(colaborador) return colaborador;
+  return null;
+}
 
 }
 
@@ -45,16 +73,18 @@ const func3 = new Colaborador('antonio' , 'ribas');
 const func4 = new Colaborador('ana'     , 'nascimento');
 
 // instancia da classe
-const empresa1 = new Empresa('Udemy', '11.111.111/0001-15');
+const empresa1 = new Udemy();
 empresa1.adicionaFuncionario(func);
 empresa1.adicionaFuncionario(func1);
 empresa1.adicionaFuncionario(func2);
 empresa1.adicionaFuncionario(func3);
 empresa1.adicionaFuncionario(func4);
 
+empresa1.pop();
+console.log('pegando ', empresa1);
 
 //console.log(empresa1);
-empresa1.mostrarFuncionarios();
+//empresa1.mostrarFuncionarios();
 
 //console.log(empresa1);
 //console.log(func);
